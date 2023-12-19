@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Category>
+
+<div class="container pt-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Список категорий</h2>
+        </div>
+        <div class="col-6">
+            Создать
+        </div>
+    </div>
+
+    <br /><br />
+
+    @if(Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Категория</th>
+                    <th>Порядок вывода</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var category in Model)
+                {
+                    <tr>
+                        <td width="50%">@category.Name</td>
+                        <td width="30%">@category.DisplayOrder</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Список категорий пуст!</p>
+    }
+</div>
+
