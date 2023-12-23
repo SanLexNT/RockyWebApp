@@ -1,0 +1,42 @@
+﻿@model ApplicationType
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+
+        <div class="form-group row mb-4">
+            <h2 class="text-info pl-3">Добавить новый тип апликации</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row m-4">
+                    <div class="col-4">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Добавить" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Create" class="btn btn-success w-100">
+                                Вернуться к списку
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+        </div>
+
+    </div>
+</form>
+

@@ -5,8 +5,11 @@
         <div class="col-6">
             <h2 class="text-primary">Список категорий</h2>
         </div>
-        <div class="col-6">
-            Создать
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create"
+            class="btn btn-primary">
+              <i class="fas fa-plus"></i> &nbsp; Создать новую категорию
+            </a>
         </div>
     </div>
 
@@ -27,8 +30,19 @@
                 {
                     <tr>
                         <td width="50%">@category.Name</td>
-                        <td width="30%">@category.DisplayOrder</td>
-                        <td></td>
+                        <td width="20%">@category.DisplayOrder</td>
+                        <td class="text-center">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="Category" asp-route-Id="@category.Id" asp-action="Edit"
+                                   class="btn btn-primary mx-2">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a asp-controller="Category" asp-route-Id="@category.Id" asp-action="Delete"
+                                   class="btn btn-danger mx-2">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>

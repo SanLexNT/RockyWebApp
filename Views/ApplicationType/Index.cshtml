@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ApplicationType>
+
+<div class="container pt-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Список типов апликаций</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="ApplicationType" asp-action="Create"
+               class="btn btn-primary">
+                Создать новый тип
+            </a>
+        </div>
+    </div>
+
+    <br /><br />
+
+    @if(Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Тип апликации</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var type in Model)
+                {
+                    <tr>
+                        <td width="50%">@type.Name</td>
+                        <td class="text-center">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="ApplicationType" asp-route-Id="@type.Id" asp-action="Edit"
+                                   class="btn btn-primary mx-2">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a asp-controller="ApplicationType" asp-route-Id="@type.Id" asp-action="Delete"
+                                   class="btn btn-danger mx-2">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Список типов пуст!</p>
+    }
+</div>
